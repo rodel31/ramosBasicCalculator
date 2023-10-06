@@ -5,21 +5,25 @@
     document.getElementById('additionLink').addEventListener('click', function() {
         hideAllContent();
         document.getElementById('additionContent').style.display = 'inline-block';
+        document.getElementById('frm_add').reset();
     });
 
     document.getElementById('subtractionLink').addEventListener('click', function() {
         hideAllContent();
         document.getElementById('subtractionContent').style.display = 'inline-block';
+        document.getElementById('frm_sub').reset();
     });
 
     document.getElementById('multiplicationLink').addEventListener('click', function() {
         hideAllContent();
         document.getElementById('multiplicationContent').style.display = 'inline-block';
+        document.getElementById('frm_prod').reset();
     });
 
     document.getElementById('divisionLink').addEventListener('click', function() {
         hideAllContent();
         document.getElementById('divisionContent').style.display = 'inline-block';
+        document.getElementById('frm_div').reset();
     });
 
 // Hide all content sections
@@ -87,7 +91,7 @@ function getFormId(form_Id){
         .then(response => {
             if (response.ok) {
                 alert("success");
-                return response.json();// Assuming the response is JSON
+                return response.json();
             } else {
                 throw new Error('Network response was not ok');
             }
@@ -100,7 +104,7 @@ function getFormId(form_Id){
             // Handle errors
             console.error('Fetch error:', error);
         });
-    })
+    }) 
 }
     
     

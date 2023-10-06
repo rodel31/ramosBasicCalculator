@@ -130,7 +130,7 @@
 				</div>
 				<div id="additionContent" style="display: none;">
 					<h1>ADDITION</h1>
-					<form id="frm_Add">
+					<form id="frm_add">
 						<input type="hidden" name="operation" value="addition">
 						<label>Input First Number :
 							<input type="number" name="ramosAddNum1"/>
@@ -138,7 +138,7 @@
 						<label>Input Second Number :
 							<input type="number" name="ramosAddNum2"/>
 						</label>
-						<input type="submit" name="btnAdd" id="button" value="SUM" onclick="calcSum();getFormId('frm_Add');"/>
+						<input type="submit" name="btnAdd" id="button" value="SUM" onclick="calcSum();getFormId('frm_add');"/>
 						<input type="reset" name="button1" id="button1" value="CLEAR"/> 
 						<label id="sum">The sum of two Numbers :
 							<input type="number" name="ramoSum" id="ramosSum">
@@ -147,7 +147,8 @@
 				</div>
 				<div id="subtractionContent" style="display: none;">
 					<h1>SUBTRACTION</h1>
-					<form id="frm_Sub">
+					<form id="frm_sub">
+						<input type="hidden" name="operation" value="subtraction">
 						<label>Input First Number :
 							<input type="number" name="ramosSubNum1">
 						</label>
@@ -163,14 +164,15 @@
 				</div>
 				<div id="multiplicationContent" style="display: none;">
 					<h1>MULTIPLICATION</h1>
-					<form id="frm_Prod">
+					<form id="frm_prod">
+						<input type="hidden" name="operation" value="multiplication">
 						<label>Input First Number :
 							<input type="number" name="ramosProdNum1">
 						</label>
 						<label>Input Second Number :
 							<input type="number" name="ramosProdNum2">
 						</label>
-						<input type="submit" name="btnProd" id="button" value="MULTIPLY" onclick="calcProduct()"> 
+						<input type="submit" name="btnProd" id="button" value="MULTIPLY" onclick="calcProduct(); getFormId('frm_prod');"> 
 						<input type="reset" name="button1" id="button1" value="CLEAR"> 
 						<label id="multi">The product of two Numbers :
 							<input type="number" name="ramosProduct" id="ramosProduct">
@@ -179,14 +181,15 @@
 				</div>
 				<div id="divisionContent" style="display: none;">
 					<h1>DIVISION</h1>
-					<form id="frm_Div">
+					<form id="frm_div">
+						<input type="hidden" name="operation" value="division">
 						<label>Input First Number :
 							<input type="number" name="ramosDivNum1">
 						</label>
 						<label>Input Second Number :
 							<input type="number" name="ramosDivNum2">
 						</label>
-						<input type="submit" name="btnDiv" id="button" value="DIVISION" onclick="calcQuotient()"> 
+						<input type="submit" name="btnDiv" id="button" value="DIVISION" onclick="calcQuotient(); getFormId('frm_div');"> 
 						<input type="reset" name="button1" id="button1" value="CLEAR"> 
 						<label id="division">The quotient of two Numbers :
 							<input type="number" name="ramosQuotient" id="ramosQuotient">
