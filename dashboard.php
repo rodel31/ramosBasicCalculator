@@ -130,69 +130,69 @@
 				</div>
 				<div id="additionContent" style="display: none;">
 					<h1>ADDITION</h1>
-					<form id="frm_add" onsubmit="submitForm(event)">
+					<form id="frm_Add">
 						<input type="hidden" name="operation" value="addition">
 						<label>Input First Number :
-							<input type="number" name="ramosNum1">
+							<input type="number" name="ramosAddNum1"/>
 						</label>
 						<label>Input Second Number :
-							<input type="number" name="ramosNum2">
+							<input type="number" name="ramosAddNum2"/>
 						</label>
-						<input type="button" name="btnAdd" id="button" value="SUM" onclick="calcSum()">
-						<input type="reset" name="button1" id="button1" value="CLEAR"> 
+						<input type="submit" name="btnAdd" id="button" value="SUM" onclick="calcSum();getFormId('frm_Add');"/>
+						<input type="reset" name="button1" id="button1" value="CLEAR"/> 
 						<label id="sum">The sum of two Numbers :
-							<input type="number" name="ramosSum">
+							<input type="number" name="ramoSum" id="ramosSum">
 						</label>
 					</form>
 				</div>
 				<div id="subtractionContent" style="display: none;">
 					<h1>SUBTRACTION</h1>
-					<form id="frm_sub"action="" method="POST">
+					<form id="frm_Sub">
 						<label>Input First Number :
-							<input type="number" name="ramosNum1">
+							<input type="number" name="ramosSubNum1">
 						</label>
 						<label>Input Second Number :
-							<input type="number" name="ramosNum2">
+							<input type="number" name="ramosSubNum2">
 						</label>
-						<input type="button" name="btnSub" id="button" value="SUBTRACT" onclick="calcDifference ()">
+						<input type="submit" name="btnSub" id="button" value="SUBTRACT" onclick="calcDifference (); getFormId('frm_sub');">
 						<input type="reset" name="button1" id="button1" value="CLEAR"> 
 						<label id="sub">The difference of two Numbers :
-							<input type="number" name="ramosDifference">
+							<input type="number" name="ramosDifference" id="ramosDifference">
 						</label>
 					</form>
 				</div>
 				<div id="multiplicationContent" style="display: none;">
 					<h1>MULTIPLICATION</h1>
-					<form id="frm_multi"action="" method="POST">
+					<form id="frm_Prod">
 						<label>Input First Number :
-							<input type="number" name="ramosNum1">
+							<input type="number" name="ramosProdNum1">
 						</label>
 						<label>Input Second Number :
-							<input type="number" name="ramosNum2">
+							<input type="number" name="ramosProdNum2">
 						</label>
-						<input type="button" name="btnProd" id="button" value="MULTIPLY" onclick="calcProduct()"> 
+						<input type="submit" name="btnProd" id="button" value="MULTIPLY" onclick="calcProduct()"> 
 						<input type="reset" name="button1" id="button1" value="CLEAR"> 
 						<label id="multi">The product of two Numbers :
-							<input type="number" name="ramosProduct">
+							<input type="number" name="ramosProduct" id="ramosProduct">
 						</label>
 					</form>
 				</div>
 				<div id="divisionContent" style="display: none;">
 					<h1>DIVISION</h1>
-					<form id="frm_division"action="" method="POST">
+					<form id="frm_Div">
 						<label>Input First Number :
-							<input type="number" name="ramosNum1">
+							<input type="number" name="ramosDivNum1">
 						</label>
 						<label>Input Second Number :
-							<input type="number" name="ramosNum2">
+							<input type="number" name="ramosDivNum2">
 						</label>
-						<input type="button" name="btnDiv" id="button" value="DIVISION" onclick="calcQuotient()"> 
+						<input type="submit" name="btnDiv" id="button" value="DIVISION" onclick="calcQuotient()"> 
 						<input type="reset" name="button1" id="button1" value="CLEAR"> 
 						<label id="division">The quotient of two Numbers :
-							<input type="number" name="ramosQuotient" >
+							<input type="number" name="ramosQuotient" id="ramosQuotient">
 						</label>
 					</form>
-					<p id="msg"></p>
+					<span id="msg"> </span>
 				</div>
 			</main>
 		</section>

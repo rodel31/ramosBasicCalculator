@@ -1,5 +1,6 @@
-document.addEventListener("DOMContentLoaded", function () {
-    const toggleLinks = document.querySelectorAll(".toggleContent");   
+
+    const toggleLinks = document.querySelectorAll(".toggleContent");
+      
         // Display the selected content section
     document.getElementById('additionLink').addEventListener('click', function() {
         hideAllContent();
@@ -20,7 +21,6 @@ document.addEventListener("DOMContentLoaded", function () {
         hideAllContent();
         document.getElementById('divisionContent').style.display = 'inline-block';
     });
-});
 
 // Hide all content sections
 function hideAllContent() {
@@ -29,52 +29,81 @@ function hideAllContent() {
         div.style.display = 'none';
     });
 }    
+
+
 function calcSum () {
-    document.getElementById('frm_add').submit();
+    let frmId = document.getElementById("additionContent");
     let Num1 = document.getElementsByName("ramosAddNum1")[0].value;
     let Num2 = document.getElementsByName("ramosAddNum2")[0].value;
     let Sum = Number(Num1) + Number (Num2);
-    document.getElementsByName("ramosSum")[0].value=Sum;
-}
-
+    document.getElementById("ramosSum").value = Sum;
+}   
+      
 function calcDifference () {
     let Num1 = document.getElementsByName("ramosSubNum1")[0].value;
     let Num2 = document.getElementsByName("ramosSubNum2")[0].value;
     let Diff = Number(Num1) - Number (Num2);
-    document.getElementsByName("ramosDifference")[0].value=Diff;
+    console.log("Difference: " + Diff);
+    document.getElementById("ramosDifference").value = Diff;
 }
 
 function calcProduct () {
     let Num1 = document.getElementsByName("ramosProdNum1")[0].value;
     let Num2 = document.getElementsByName("ramosProdNum2")[0].value;
     let Product = Number(Num1) * Number (Num2);
-    document.getElementsByName("ramosProduct")[0].value=Product;
+    document.getElementById("ramosProduct").value = Product;
 }
 
 function calcQuotient () {
     let Num1 = document.getElementsByName("ramosDivNum1")[0].value;
     let Num2 = document.getElementsByName("ramosDivNum2")[0].value;
     let Quotient = Number(Num1) / Number (Num2);
-    document.getElementsByName("ramosQuotient")[0].value=Quotient;
+    document.getElementById("ramosQuotient").value=Quotient;
 }
-    function submitForm(event) {
-        event.preventDefault(); // Prevent the default form submission behavior
 
-        // Get the form data
-        const formData = new FormData(document.getElementById('frm_add'));
+ 
 
-        // Make an AJAX request to the server (you can use vanilla JavaScript or a library like jQuery)
-        fetch('actions.php', {
-            method: 'POST',
-            body: formData,
+function getFormId(form_Id){
+    var form=document.getElementById(form_Id);
+
+ console.log(form);
+
+    form.addEventListener('submit',(e) => {
+        e.preventDefault();
+
+        const formData = new FormData(form);
+
+        for(item of formData){
+            console.log(item[0],item[1]);
+        }
+
+       const url = 'actions.php';
+
+        // Fetch data from the PHP script
+        fetch(url, {
+            method: 'POST', // Set the HTTP method to POST
+            body: formData,  // Set the form data as the request body
         })
-        .then(response => response.text())
+        .then(response => {
+            if (response.ok) {
+                alert("success");
+                return response.json();// Assuming the response is JSON
+            } else {
+                throw new Error('Network response was not ok');
+            }
+        })
         .then(data => {
-            // Append the response from the server to the result element
-            document.getElementById('msg').innerHTML += data;
+            // Process the response data here (data sent from actions.php)
+            console.log(data.message); // For example, log it to the console
         })
         .catch(error => {
-            console.error('Error:', error);
+            // Handle errors
+            console.error('Fetch error:', error);
         });
-    }
-      
+    })
+}
+    
+    
+
+
+ 
